@@ -235,7 +235,9 @@ class _CounterAreaState extends State<CounterArea> {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar:  AppBar(
-        title: const Text("Counter"),
+        // title: const Text("Counter"),
+         title: const Center(child:  Text("Counter")),
+           
       ),
                    //ep1-8  column widget
          body:  Center(
@@ -245,13 +247,18 @@ class _CounterAreaState extends State<CounterArea> {
               Text('กดเพื่อเพิ่มจำนวนนับ',
               style: TextStyle(
                 fontSize: 25,
-                color: Colors.indigoAccent,
+                color: Color.fromARGB(255, 47, 22, 6),
+                fontWeight: FontWeight.w600,
               ),
               ), 
-              Text('0',                                    
+              Text('0',   
+                                             
                style: TextStyle(
                 fontSize: 35,
                 color: Colors.brown,
+                fontWeight: FontWeight.w400,
+                
+
                ),
                ),
             ],
@@ -261,7 +268,7 @@ class _CounterAreaState extends State<CounterArea> {
             onPressed: ()=>{
 
             },
-            child: Icon(Icons.add),
+            child: const Icon(Icons.add),
             ) ,
             
     );
