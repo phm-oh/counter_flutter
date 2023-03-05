@@ -288,6 +288,92 @@ void main(){
 
 //------------------------------------------------------------------
 
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//     theme: ThemeData(
+//       scaffoldBackgroundColor: Colors.brown.shade50,     
+//       primarySwatch:  Colors.brown
+//     ),
+//     title:'My APP',
+//     home: const CounterArea(),
+//   );
+//   }
+// }
+
+
+
+
+// class CounterArea extends StatefulWidget {
+//   const CounterArea({super.key});
+
+//   @override
+//   State<CounterArea> createState() => _CounterAreaState();
+// }
+
+
+
+// class _CounterAreaState extends State<CounterArea> {
+
+//    int _counter = 0;
+
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return  Scaffold(
+//       appBar:  AppBar(
+//         // title: const Text("Counter"),
+//          title: const Center(child:  Text("Counter")),
+           
+//       ),
+//                    //ep1-8  column widget
+//          body:  Center(
+//           child:  Column(  
+//             mainAxisAlignment: MainAxisAlignment.center,     
+//             children:  [
+//               const Text('กดเพื่อเพิ่มจำนวนนับ',
+//               style: TextStyle(
+//                 fontSize: 25,
+//                 color: Color.fromARGB(255, 47, 22, 6),
+//                 fontWeight: FontWeight.w600,
+//               ),
+//               ), 
+//               // ignore: unnecessary_brace_in_string_interps
+//               Text('${_counter}',   
+                                             
+//                style: const TextStyle(
+//                 fontSize: 35,
+//                 color: Colors.brown,
+//                 fontWeight: FontWeight.w400,
+                
+
+//                ),
+//                ),
+            
+//             ],
+//           ),
+//           ),
+//           floatingActionButton: FloatingActionButton(                         //ep1-10 set stage function
+//             onPressed: (){
+//                   // ignore: avoid_print
+//                   print('บุ่มถูกกด');
+//                   setState(() {
+//                     ++_counter;
+//                   });
+                  
+//             },
+//             child: const Icon(Icons.add),
+//             ) ,
+            
+            
+//     );
+//   }
+// }
+//----------------------------------------------------------------
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -319,6 +405,22 @@ class CounterArea extends StatefulWidget {
 class _CounterAreaState extends State<CounterArea> {
 
    int _counter = 0;
+   Color _color = Color.fromARGB(255, 88, 106, 4);
+
+   void increde(){
+      setState(() {
+         print('บุ่มถูกกด');
+          ++_counter; 
+          if(_counter >6)  {                                         //เปลียนสีตัวเลข
+            print('สีแดง');
+            
+              this._color = Color.fromARGB(255, 51, 5, 7);
+            
+          
+          }                                        //ep1-11 แยก function ออกจาก widget
+      });
+      
+   }
 
 
   @override
@@ -344,9 +446,9 @@ class _CounterAreaState extends State<CounterArea> {
               // ignore: unnecessary_brace_in_string_interps
               Text('${_counter}',   
                                              
-               style: const TextStyle(
+               style:  TextStyle(
                 fontSize: 35,
-                color: Colors.brown,
+                color: _color,
                 fontWeight: FontWeight.w400,
                 
 
@@ -356,15 +458,8 @@ class _CounterAreaState extends State<CounterArea> {
             ],
           ),
           ),
-          floatingActionButton: FloatingActionButton(                         //ep1-10 set stage function
-            onPressed: (){
-                  // ignore: avoid_print
-                  print('บุ่มถูกกด');
-                  setState(() {
-                    ++_counter;
-                  });
-                  
-            },
+          floatingActionButton: FloatingActionButton(                         
+            onPressed: increde,
             child: const Icon(Icons.add),
             ) ,
             
